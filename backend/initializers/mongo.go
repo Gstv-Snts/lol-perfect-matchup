@@ -7,14 +7,14 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func ConnectToAtlas(uri string) (*mongo.Client, error) {
+func ConnectToMongo(uri string) (*mongo.Client, error) {
 
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 
 	return client, err
 }
 
-func DisconnectFromAtlas(client mongo.Client) error {
+func DisconnectFromMongo(client mongo.Client) error {
 
 	err := client.Disconnect(context.TODO())
 

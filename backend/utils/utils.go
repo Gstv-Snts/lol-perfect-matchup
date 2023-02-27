@@ -1,4 +1,4 @@
-package helpers
+package utils
 
 import (
 	"fmt"
@@ -10,11 +10,9 @@ import (
 func GetEnviromentalVariable(variableName string) string {
 	envMap, err := godotenv.Read(".env")
 
-	if err != nil {
-		fmt.Println("YOU NEED TO CREATE AN .ENV FILE AND PUT 'MONGO_URI=<YOUR MONGO URI>'")
-	}
-
+	HandleError(err)
 	return envMap[variableName]
+
 }
 
 func HandleError(err error) {
